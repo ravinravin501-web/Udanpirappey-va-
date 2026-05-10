@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DMK Joining Portal</title>
+<title>உடன்பிறப்புகளாய் இணைவோம்🖤♥️</title>
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
@@ -35,22 +35,22 @@ body::before{
     z-index:-1;
 }
 
-/* LEADER IMAGES */
+/* SIDE LEADERS */
 
-.stalin{
+.stalin-side{
     position:fixed;
     left:0;
     bottom:0;
     width:35%;
-    max-width:350px;
+    max-width:340px;
 }
 
-.udhay{
+.udhay-side{
     position:fixed;
     right:0;
     bottom:0;
     width:35%;
-    max-width:350px;
+    max-width:340px;
 }
 
 /* TOP SECTION */
@@ -58,6 +58,16 @@ body::before{
 .top-section{
     text-align:center;
     padding:25px 15px;
+}
+
+.top-stalin{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid red;
+    box-shadow:0 0 20px rgba(255,0,0,0.6);
+    margin-bottom:15px;
 }
 
 .logo{
@@ -149,11 +159,11 @@ body::before{
     grid-column:1/3;
 }
 
-/* PREVIEW */
+/* PHOTO PREVIEW */
 
 .preview-box{
     text-align:center;
-    margin-top:30px;
+    margin-top:25px;
 }
 
 .preview-box img{
@@ -171,13 +181,13 @@ body::before{
 .join-btn{
     width:100%;
     padding:16px;
-    margin-top:30px;
     background:red;
+    color:white;
     border:none;
     border-radius:12px;
-    color:white;
-    font-size:28px;
+    font-size:26px;
     font-weight:bold;
+    margin-top:30px;
     cursor:pointer;
 }
 
@@ -192,16 +202,6 @@ body::before{
     margin-top:30px;
     padding:20px;
     color:#ccc;
-}
-
-.socials{
-    margin-top:15px;
-}
-
-.socials i{
-    margin:0 10px;
-    color:red;
-    font-size:24px;
 }
 
 /* MOBILE */
@@ -228,8 +228,8 @@ body::before{
     font-size:18px;
 }
 
-.stalin,
-.udhay{
+.stalin-side,
+.udhay-side{
     width:42%;
     opacity:0.8;
 }
@@ -241,21 +241,31 @@ body::before{
 
 <body>
 
-<!-- LEFT IMAGE -->
-<img src="stalin.png" class="stalin">
+<!-- SIDE LEADERS -->
 
-<!-- RIGHT IMAGE -->
-<img src="udhayanidhi.png" class="udhay">
+<img src="stalin.png" class="stalin-side">
+
+<img src="udhayanidhi.png" class="udhay-side">
 
 <!-- TOP SECTION -->
 
 <div class="top-section">
 
+    <!-- STALIN TOP PHOTO -->
+
+    <img src="stalin.jpg" class="top-stalin">
+
+    <!-- SUNRISE LOGO -->
+
     <img src="stalin.jpg" class="logo">
 
-    <div class="main-title">DMK</div>
+    <div class="main-title">
+        DMK
+    </div>
 
-    <div class="portal">JOINING PORTAL</div>
+    <div class="portal">
+        JOINING PORTAL
+    </div>
 
     <div class="join-title">
         JOIN <span>DMK</span>
@@ -278,35 +288,46 @@ body::before{
     <div class="form-grid">
 
         <div class="input-box">
+
             <label>Full Name *</label>
-            <input type="text" id="name"
-            placeholder="Enter your full name">
+
+            <input type="text"
+            id="name"
+            placeholder="Enter your name">
+
         </div>
 
         <div class="input-box">
+
             <label>Mobile Number *</label>
-            <input type="number" id="mobile"
-            placeholder="Enter your mobile number">
+
+            <input type="number"
+            id="mobile"
+            placeholder="Enter mobile number">
+
         </div>
 
         <div class="input-box">
+
             <label>Email Address</label>
-            <input type="email" id="email"
-            placeholder="Enter your email">
+
+            <input type="email"
+            id="email"
+            placeholder="Enter email">
+
         </div>
 
         <div class="input-box">
-            <label>constituency *</label>
 
-            <select id="constituency">
+            <label>District *</label>
+
+            <select id="district">
 
                 <option>Select constituency</option>
                 <option>kanniyakumari</option>
-                <option>Nagercoil<option>
-                    
-                 <option>Colachal</option>
+                <option>Nagercoil</option>
                 <option>Padmanabhapuram</option>
-                <option>Vilavancode</option>
+                <option>vilavancode</option>
                 <option>Killiyoor</option>
 
             </select>
@@ -318,7 +339,7 @@ body::before{
             <label>Address *</label>
 
             <textarea id="address"
-            placeholder="Enter your address"></textarea>
+            placeholder="Enter address"></textarea>
 
         </div>
 
@@ -334,7 +355,7 @@ body::before{
 
     </div>
 
-    <!-- PHOTO PREVIEW -->
+    <!-- PREVIEW -->
 
     <div class="preview-box">
 
@@ -345,7 +366,27 @@ body::before{
 
     </div>
 
-    <!-- BUTTON -->
+    <!-- JOIN BUTTON -->
+
+    <button type="button"
+    class="join-btn"
+    onclick="goToCard()">
+
+        JOIN NOW
+
+    </button>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+    © 2025 DMK Joining Portal <br><br>
+
+    தமிழ்நாடு போராடும் தமிழ்நாடு வெல்லும்
+
+</div>
 
 <script>
 
@@ -381,8 +422,6 @@ photoInput.addEventListener("change", function(){
 
 function goToCard(){
 
-    // SAVE DATA
-
     localStorage.setItem(
         "name",
         document.getElementById("name").value
@@ -413,109 +452,7 @@ function goToCard(){
         preview.src
     );
 
-    // GO TO CARD PAGE
-
-    window.location.href = "./card.html";
-
-}
-
-</script>
-
-    </button>
-
-</div>
-
-<!-- FOOTER -->
-
-<div class="footer">
-
-    © 2025 DMK Joining Portal <br><br>
-
-    Designed with ❤️ by
-    <span style="color:red;">
-        Ravin Tech
-    </span>
-
-    <div class="socials">
-
-        <i class="fab fa-facebook"></i>
-
-        <i class="fab fa-twitter"></i>
-
-        <i class="fab fa-instagram"></i>
-
-        <i class="fab fa-youtube"></i>
-
-    </div>
-
-</div>
-
-<script>
-
-/* PHOTO PREVIEW */
-
-const photoInput =
-document.getElementById("photoInput");
-
-const preview =
-document.getElementById("preview");
-
-photoInput.addEventListener("change",
-function(){
-
-    const file = this.files[0];
-
-    if(file){
-
-        const reader = new FileReader();
-
-        reader.onload = function(e){
-
-            preview.src = e.target.result;
-
-        }
-
-        reader.readAsDataURL(file);
-
-    }
-
-});
-
-/* GO TO CARD PAGE */
-
-function goToCard(){
-
-    localStorage.setItem(
-        "name",
-        document.getElementById("name").value
-    );
-
-    localStorage.setItem(
-        "mobile",
-        document.getElementById("mobile").value
-    );
-
-    localStorage.setItem(
-        "email",
-        document.getElementById("email").value
-    );
-
-    localStorage.setItem(
-        "district",
-        document.getElementById("district").value
-    );
-
-    localStorage.setItem(
-        "address",
-        document.getElementById("address").value
-    );
-
-    localStorage.setItem(
-        "photo",
-        preview.src
-    );
-
-    /* REDIRECT */
+    /* GO TO CARD PAGE */
 
     window.location.href = "card.html";
 
