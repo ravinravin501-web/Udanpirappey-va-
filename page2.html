@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kanyakumari Portal</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      color:#fff;
+      overflow-x:hidden;
+      height:100vh;
+    }
+
+    .bg{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:url('background.jpg') center/cover no-repeat;
+      filter:brightness(0.35);
+      z-index:-1;
+    }
+
+    header{
+      text-align:center;
+      padding:15px;
+      background:rgba(0,0,0,0.6);
+      font-size:18px;
+      font-weight:bold;
+    }
+
+    .slogan{
+      font-size:13px;
+      color:yellow;
+      margin-top:5px;
+    }
+
+    .container{
+      max-width:500px;
+      margin:0 auto;
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding:20px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding:22px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.15);
+      box-shadow:0 8px 25px rgba(0,0,0,0.6);
+    }
+
+    input, select{
+      width:100%;
+      padding:10px;
+      margin:10px 0;
+      border:none;
+      border-radius:8px;
+    }
+
+    button{
+      width:100%;
+      padding:12px;
+      background:#e91e63;
+      border:none;
+      color:#fff;
+      font-size:16px;
+      border-radius:8px;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#c2185b;
+    }
+
+    .hidden{display:none;}
+
+    /* MODAL (FLOATING SCREEN) */
+    .modal{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.8);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+
+    .modal-content{
+      width:100%;
+      max-width:400px;
+      background:rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px);
+      padding:20px;
+      border-radius:15px;
+      border:1px solid rgba(255,255,255,0.2);
+    }
+
+    .page3{
+      text-align:center;
+      padding-top:50px;
+    }
+
+    .tagline{
+      margin-top:10px;
+      color:yellow;
+      text-align:center;
+      font-weight:bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<header>
+  Kanyakumari District Portal
+  <div class="slogan">தமிழ்நாடு போராடும் தமிழ்நாடு வெல்லும்</div>
+</header>
+
+<!-- PAGE 1 -->
+<div class="container" id="page1">
+  <div class="card">
+    <h2>Join / சேரவும்</h2>
+
+    <input type="text" id="name" placeholder="Name / பெயர்" />
+
+    <select id="constituency">
+      <option value="">Select Constituency / தொகுதி</option>
+      <option>Nagercoil</option>
+      <option>Colachel</option>
+      <option>Padmanabhapuram</option>
+      <option>Vilavancode</option>
+      <option>Killiyoor</option>
+      <option>Kanyakumari</option>
+    </select>
+
+    <button onclick="openModal()">Continue / தொடரவும்</button>
+
+    <div class="tagline">தமிழ்நாடு போராடும் தமிழ்நாடு வெல்லும்</div>
+  </div>
+</div>
+
+<!-- PAGE 2 MODAL (FLOATING SCREEN) -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3>Details / விவரங்கள்</h3>
+
+    <input type="text" id="father" placeholder="Father Name / தந்தை பெயர்" />
+    <input type="text" id="mother" placeholder="Mother Name / தாய் பெயர்" />
+    <input type="number" id="age" placeholder="Age / வயது" />
+    <input type="text" id="phone" placeholder="Phone / தொலைபேசி" />
+
+    <button onclick="goPage3()">Next / அடுத்தது</button>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="container hidden" id="page3">
+  <div class="card page3">
+    <h2>Final Details</h2>
+
+    <p id="out"></p>
+
+    <div class="tagline">தமிழ்நாடு போராடும் தமிழ்நாடு வெல்லும்</div>
+  </div>
+</div>
+
+<script>
+let userName = "";
+let constituency = "";
+
+function openModal(){
+  userName = document.getElementById("name").value;
+  constituency = document.getElementById("constituency").value;
+
+  if(userName === "" || constituency === ""){
+    alert("Fill all fields");
+    return;
+  }
+
+  document.getElementById("modal").style.display = "flex";
+}
+
+function goPage3(){
+  let father = document.getElementById("father").value;
+  let mother = document.getElementById("mother").value;
+  let age = document.getElementById("age").value;
+  let phone = document.getElementById("phone").value;
+
+  document.getElementById("modal").style.display = "none";
+  document.getElementById("page1").classList.add("hidden");
+  document.getElementById("page3").classList.remove("hidden");
+
+  document.getElementById("out").innerHTML = 
+    "Name: " + userName + "<br>" +
+    "Constituency: " + constituency + "<br>" +
+    "Father: " + father + "<br>" +
+    "Mother: " + mother + "<br>" +
+    "Age: " + age + "<br>" +
+    "Phone: " + phone;
+}
+</script>
+
+</body>
+  </html>
+  
