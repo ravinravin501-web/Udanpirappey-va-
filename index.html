@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Udanpirappey va</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
+    }
+
+    body{
+      background:linear-gradient(135deg,#111,#7a0000);
+      color:white;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    .navbar{
+      width:100%;
+      padding:15px 30px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(0,0,0,0.4);
+      backdrop-filter:blur(10px);
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:bold;
+      color:#ffcc00;
+    }
+
+    .hero{
+      text-align:center;
+      padding:80px 20px 40px;
+    }
+
+    .hero h1{
+      font-size:50px;
+      color:#ffcc00;
+      margin-bottom:15px;
+      text-shadow:0 0 20px rgba(255,204,0,0.5);
+    }
+
+    .hero p{
+      max-width:700px;
+      margin:auto;
+      line-height:1.7;
+      color:#eee;
+      font-size:18px;
+    }
+
+    .join-box{
+      width:90%;
+      max-width:500px;
+      margin:40px auto;
+      background:rgba(255,255,255,0.08);
+      border-radius:20px;
+      padding:30px;
+      backdrop-filter:blur(12px);
+      box-shadow:0 0 30px rgba(0,0,0,0.3);
+    }
+
+    .join-box h2{
+      text-align:center;
+      margin-bottom:25px;
+      color:#ffcc00;
+    }
+
+    .input-group{
+      margin-bottom:18px;
+    }
+
+    .input-group label{
+      display:block;
+      margin-bottom:8px;
+      font-size:15px;
+    }
+
+    .input-group input,
+    .input-group select,
+    .input-group textarea{
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:12px;
+      background:rgba(255,255,255,0.12);
+      color:white;
+      outline:none;
+      font-size:15px;
+    }
+
+    .input-group input::placeholder,
+    textarea::placeholder{
+      color:#ddd;
+    }
+
+    select option{
+      color:black;
+    }
+
+    .join-btn{
+      width:100%;
+      padding:15px;
+      border:none;
+      border-radius:12px;
+      background:linear-gradient(90deg,#ffcc00,#ff7300);
+      color:black;
+      font-size:18px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .join-btn:hover{
+      transform:scale(1.03);
+      box-shadow:0 0 20px rgba(255,204,0,0.5);
+    }
+
+    .success{
+      display:none;
+      text-align:center;
+      margin-top:20px;
+      color:#00ff99;
+      font-size:18px;
+      font-weight:bold;
+    }
+
+    .footer{
+      margin-top:50px;
+      text-align:center;
+      padding:20px;
+      background:rgba(0,0,0,0.4);
+      color:#ccc;
+      font-size:14px;
+    }
+
+    .floating{
+      position:fixed;
+      width:120px;
+      height:120px;
+      background:rgba(255,204,0,0.15);
+      border-radius:50%;
+      filter:blur(40px);
+      z-index:-1;
+      animation:float 8s infinite alternate ease-in-out;
+    }
+
+    .f1{
+      top:10%;
+      left:10%;
+    }
+
+    .f2{
+      bottom:10%;
+      right:10%;
+    }
+
+    @keyframes float{
+      from{
+        transform:translateY(0px);
+      }
+      to{
+        transform:translateY(30px);
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="floating f1"></div>
+  <div class="floating f2"></div>
+
+  <div class="navbar">
+    <div class="logo">DMK JOINING</div>
+  </div>
+
+  <section class="hero">
+    <h1>Join DMK Today</h1>
+
+    <p>
+      Become a part of the movement for social justice,
+      development and youth empowerment.
+    </p>
+  </section>
+
+  <div class="join-box">
+
+    <h2>Membership Form</h2>
+
+    <div class="input-group">
+      <label>Full Name</label>
+      <input type="text" id="name" placeholder="Enter your full name">
+    </div>
+
+    <div class="input-group">
+      <label>Mobile Number</label>
+      <input type="tel" id="mobile" placeholder="Enter your mobile number">
+    </div>
+
+    <div class="input-group">
+      <label>Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email">
+    </div>
+
+    <div class="input-group">
+      <label>District</label>
+
+      <select id="district">
+
+        <option>Select District</option>
+
+        <option>Ariyalur</option>
+        <option>Chengalpattu</option>
+        <option>Chennai</option>
+        <option>Coimbatore</option>
+        <option>Cuddalore</option>
+        <option>Dharmapuri</option>
+        <option>Dindigul</option>
+        <option>Erode</option>
+        <option>Kallakurichi</option>
+        <option>Kancheepuram</option>
+        <option>Kanniyakumari</option>
+        <option>Karur</option>
+        <option>Krishnagiri</option>
+        <option>Madurai</option>
+        <option>Mayiladuthurai</option>
+        <option>Nagapattinam</option>
+        <option>Namakkal</option>
+        <option>Nilgiris</option>
+        <option>Perambalur</option>
+        <option>Pudukkottai</option>
+        <option>Ramanathapuram</option>
+        <option>Ranipet</option>
+        <option>Salem</option>
+        <option>Sivagangai</option>
+        <option>Tenkasi</option>
+        <option>Thanjavur</option>
+        <option>Theni</option>
+        <option>Thoothukudi</option>
+        <option>Tiruchirappalli</option>
+        <option>Tirunelveli</option>
+        <option>Tirupathur</option>
+        <option>Tiruppur</option>
+        <option>Tiruvallur</option>
+        <option>Tiruvannamalai</option>
+        <option>Tiruvarur</option>
+        <option>Vellore</option>
+        <option>Viluppuram</option>
+        <option>Virudhunagar</option>
+
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label>Address</label>
+      <textarea rows="4" placeholder="Enter your address"></textarea>
+    </div>
+
+    <button class="join-btn" onclick="joinNow()">
+      Join Now
+    </button>
+
+    <div class="success" id="successMsg">
+      Successfully Submitted! Welcome to DMK.
+    </div>
+
+  </div>
+
+  <div class="footer">
+    © 2026 DMK Joining Portal | All Rights Reserved <br>
+    Designed by Ravin Tech
+  </div>
+
+  <script>
+
+    function joinNow(){
+
+      let name=document.getElementById("name").value;
+      let mobile=document.getElementById("mobile").value;
+
+      if(name==="" || mobile===""){
+
+        alert("Please fill all required details");
+        return;
+      }
+
+      document.getElementById("successMsg").style.display="block";
+
+      setTimeout(()=>{
+
+        document.getElementById("successMsg").style.display="none";
+
+      },5000);
+
+    }
+
+  </script>
+
+</body>
+</html>
