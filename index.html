@@ -109,13 +109,6 @@
     }
   </style>
 </head>
-    <ul id="constituencyList"></ul>
-  <script src="constituency.js"></script>
-  <script>
-  document.getElementById("constituencyList").innerHTML =
-    constituencies.map(c => `<li>${c}</li>`).join("");
-  </script>
-  
 <body>
 
 <div class="bg"></div>
@@ -192,59 +185,68 @@
     <h4>Constituency List</h4>
     <div>
       <h4>Constituency List (All 234 Assembly Constituencies)</h4>
-      <ul id="constituencyList"></ul>
-    </div>
 
-    <script>
-      const constituencies = [
-        // Chennai (16)
-        "Dr. Radhakrishnan Nagar","Perambur","Kolathur","Villivakkam","Thiru-Vi-Ka Nagar",
-        "Egmore","Royapuram","Harbour","Chepauk-Thiruvallikeni","Thousand Lights",
-        "Anna Nagar","Virugambakkam","Saidapet","Mylapore","Velachery","Sholinganallur",
+<input type="text" id="searchBox" placeholder="Search constituency..." onkeyup="filterConstituency()" style="width:100%;padding:10px;margin:10px 0;border-radius:8px;border:none;" />
 
-        // Coimbatore (10)
-        "Coimbatore North","Coimbatore South","Singanallur","Kinathukadavu","Pollachi",
-        "Valparai","Sulur","Kavundampalayam","Thondamuthur","Mettupalayam",
+<ul id="constituencyList"></ul>
 
-        // Madurai (10)
-        "Madurai East","Madurai West","Madurai North","Madurai South","Madurai Central",
-        "Thiruparankundram","Melur","Sholavandan","Usilampatti","Periyakulam",
+<script>
+const constituencies = [
+  "Dr. Radhakrishnan Nagar","Perambur","Kolathur","Villivakkam","Thiru-Vi-Ka Nagar",
+  "Egmore","Royapuram","Harbour","Chepauk-Thiruvallikeni","Thousand Lights",
+  "Anna Nagar","Virugambakkam","Saidapet","Mylapore","Velachery","Sholinganallur",
 
-        // Tiruchirappalli (9)
-        "Srirangam","Tiruchirappalli West","Tiruchirappalli East","Thiruverumbur",
-        "Lalgudi","Manapparai","Musiri","Thuraiyur","Perambalur",
+  "Coimbatore North","Coimbatore South","Singanallur","Kinathukadavu","Pollachi",
+  "Valparai","Sulur","Kavundampalayam","Thondamuthur","Mettupalayam",
 
-        // Salem (11)
-        "Salem North","Salem South","Salem West","Omalur","Edappadi","Mettur",
-        "Yercaud","Attur","Gangavalli","Veerapandi","Sankari",
+  "Madurai East","Madurai West","Madurai North","Madurai South","Madurai Central",
+  "Thiruparankundram","Melur","Sholavandan","Usilampatti","Periyakulam",
 
-        // Remaining districts (simplified continuation to complete 234 seats)
-        "Alandur","Tambaram","Pallavaram","Chrompet","Tiruvottiyur","Avadi",
-        "Maduravoyal","Ambattur","Tiruvallur","Poonamallee",
-        "Kancheepuram","Uthiramerur","Sriperumbudur","Arakkonam","Sholingur",
-        "Ranipet","Arcot","Vellore","Anaikattu","Gudiyattam",
-        "Ambur","Vaniyambadi","Tirupattur","Uthangarai","Krishnagiri",
-        "Hosur","Veppanahalli","Palacode","Pennagaram","Dharmapuri",
-        "Harur","Chengam","Tiruvannamalai","Kilpennathur","Polur",
-        "Arani","Cheyyar","Vandavasi","Gingee","Tindivanam",
-        "Mailam","Vanur","Villupuram","Vikravandi","Ulundurpet",
-        "Rishivandiyam","Kallakurichi","Sankarapuram","Chidambaram","Kattumannarkoil",
-        "Bhuvanagiri","Sirkazhi","Mayiladuthurai","Poompuhar","Nagapattinam",
-        "Kilvelur","Vedaranyam","Thiruvarur","Mannargudi","Nannilam",
-        "Thiruthuraipoondi","Thanjavur","Orathanadu","Papanasam","Pattukkottai",
-        "Peravurani","Kumbakonam","Thiruvidaimarudur","Theni","Bodinayakanur",
-        "Periyakulam","Andipatti","Uthamapalayam","Ramanathapuram","Paramakudi",
-        "Tiruvadanai","Mudukulathur","Sivaganga","Manamadurai","Tiruppattur (Sivaganga)",
-        "Karaikudi","Alangudi","Aranthangi","Pudukkottai","Viralimalai",
-        "Vedasandur","Oddanchatram","Palani","Dindigul","Natham",
-        "Nilakkottai","Cumbum","Andipatti","Sankarankovil","Tenkasi",
-        "Alangulam","Kadayanallur","Ambasamudram","Palayamkottai","Radhapuram",
-        "Nanguneri","Tirunelveli","Sankarankovil","Thoothukudi","Tiruchendur",
-        "Srivaikuntam","Ottapidaram","Kovilpatti","Vilathikulam"
-      ];
+  "Srirangam","Tiruchirappalli West","Tiruchirappalli East","Thiruverumbur",
+  "Lalgudi","Manapparai","Musiri","Thuraiyur","Perambalur",
 
-      document.getElementById("constituencyList").innerHTML = constituencies.map(c => `<li>${c}</li>`).join("");
-    </script>
+  "Salem North","Salem South","Salem West","Omalur","Edappadi","Mettur",
+  "Yercaud","Attur","Gangavalli","Veerapandi","Sankari",
+
+  "Alandur","Tambaram","Pallavaram","Chrompet","Tiruvottiyur","Avadi",
+  "Maduravoyal","Ambattur","Tiruvallur","Poonamallee",
+  "Kancheepuram","Uthiramerur","Sriperumbudur","Arakkonam","Sholingur",
+  "Ranipet","Arcot","Vellore","Anaikattu","Gudiyattam",
+  "Ambur","Vaniyambadi","Tirupattur","Uthangarai","Krishnagiri",
+  "Hosur","Veppanahalli","Palacode","Pennagaram","Dharmapuri",
+  "Harur","Chengam","Tiruvannamalai","Kilpennathur","Polur",
+  "Arani","Cheyyar","Vandavasi","Gingee","Tindivanam",
+  "Mailam","Vanur","Villupuram","Vikravandi","Ulundurpet",
+  "Rishivandiyam","Kallakurichi","Sankarapuram","Chidambaram","Kattumannarkoil",
+  "Bhuvanagiri","Sirkazhi","Mayiladuthurai","Poompuhar","Nagapattinam",
+  "Kilvelur","Vedaranyam","Thiruvarur","Mannargudi","Nannilam",
+  "Thiruthuraipoondi","Thanjavur","Orathanadu","Papanasam","Pattukkottai",
+  "Peravurani","Kumbakonam","Thiruvidaimarudur","Theni","Bodinayakanur",
+  "Periyakulam","Andipatti","Uthamapalayam","Ramanathapuram","Paramakudi",
+  "Tiruvadanai","Mudukulathur","Sivaganga","Manamadurai","Tiruppattur (Sivaganga)",
+  "Karaikudi","Alangudi","Aranthangi","Pudukkottai","Viralimalai",
+  "Vedasandur","Oddanchatram","Palani","Dindigul","Natham",
+  "Nilakkottai","Cumbum","Sankarankovil","Tenkasi",
+  "Alangulam","Kadayanallur","Ambasamudram","Palayamkottai","Radhapuram",
+  "Nanguneri","Tirunelveli","Thoothukudi","Tiruchendur",
+  "Srivaikuntam","Ottapidaram","Kovilpatti","Vilathikulam"
+];
+
+const listEl = document.getElementById("constituencyList");
+const searchBox = document.getElementById("searchBox");
+
+function renderList(data){
+  listEl.innerHTML = data.map(c => `<li>${c}</li>`).join("");
+}
+
+function filterConstituency(){
+  const value = searchBox.value.toLowerCase();
+  const filtered = constituencies.filter(c => c.toLowerCase().includes(value));
+  renderList(filtered);
+}
+
+renderList(constituencies);
+</script>
 
     <p class="tagline">தமிழ்நாடு போராடும் தமிழ்நாடு வெல்லும்</p>
   </div>
@@ -270,4 +272,5 @@ function submitForm(){
 
 </body>
 </html>
+
 
