@@ -55,10 +55,18 @@
     }
 
     .card{
-      background:rgba(0,0,0,0.75);
-      padding:20px;
-      border-radius:15px;
-      box-shadow:0 0 15px #000;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding:22px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.15);
+      box-shadow:0 8px 25px rgba(0,0,0,0.6);
+      transition:0.3s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
     }
 
     input, select{
@@ -86,6 +94,29 @@
 
     .hidden{display:none;}
 
+    /* MODAL */
+    .modal{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.8);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+
+    .modal-content{
+      width:100%;
+      max-width:400px;
+      background:rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px);
+      padding:20px;
+      border-radius:15px;
+    }
+
     .tagline{
       margin-top:10px;
       color:yellow;
@@ -112,7 +143,7 @@
     <input type="text" id="name" placeholder="Name / பெயர்" />
 
     <select id="constituency">
-      <option value="">Select Constituency / தொகுதியை தேர்ந்தெடுக்கவும்</option>
+      <option value="">Select Constituency / தொகுதி</option>
       <option>Nagercoil</option>
       <option>Colachel</option>
       <option>Padmanabhapuram</option>
@@ -121,51 +152,69 @@
       <option>Kanyakumari</option>
     </select>
 
-    <button onclick="goNext()">Continue / தொடரவும்</button>
+    <button onclick="openModal()">Continue / தொடரவும்</button>
 
     <div class="tagline">தமிழ்நாடு போராடும் தமிழ்நாடு வெல்லும்</div>
   </div>
 </div>
 
-<!-- PAGE 2 -->
-<div class="container hidden" id="page2">
-  <div class="card">
-    <h2>Details / விவரங்கள்</h2>
+<!-- PAGE 2 MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3>Details / விவரங்கள்</h3>
 
-    <input type="text" id="showName" placeholder="Name / பெயர்" />
-
-    <input type="text" id="showConstituency" placeholder="Constituency / தொகுதி" readonly />
-
+    <input type="text" id="father" placeholder="Father Name / தந்தை பெயர்" />
+    <input type="text" id="mother" placeholder="Mother Name / தாய் பெயர்" />
     <input type="number" id="age" placeholder="Age / வயது" />
+    <input type="text" id="phone" placeholder="Phone / தொலைபேசி" />
 
-    <input type="text" id="phone" placeholder="Phone Number / தொலைபேசி" />
+    <button onclick="goPage3()">Submit / சமர்ப்பிக்கவும்</button>
+  </div>
+</div>
 
-    <button onclick="submitFinal()">Submit / சமர்ப்பிக்கவும்</button>
-
+<!-- PAGE 3 -->
+<div class="container hidden" id="page3">
+  <div class="card">
+    <h2>Final Details</h2>
+    <p id="out"></p>
     <div class="tagline">தமிழ்நாடு போராடும் தமிழ்நாடு வெல்லும்</div>
   </div>
 </div>
 
 <script>
-function goNext(){
-  let name = document.getElementById("name").value;
-  let constituency = document.getElementById("constituency").value;
+let userName = "";
+let constituency = "";
 
-  if(name === "" || constituency === ""){
-    alert("Fill all fields / அனைத்தையும் நிரப்பவும்");
+function openModal(){
+  userName = document.getElementById("name").value;
+  constituency = document.getElementById("constituency").value;
+
+  if(userName === "" || constituency === ""){
+    alert("Fill all fields");
     return;
   }
 
-  document.getElementById("page1").classList.add("hidden");
-  document.getElementById("page2").classList.remove("hidden");
-
-  document.getElementById("showName").value = name;
-  document.getElementById("showConstituency").value = constituency;
+  document.getElementById("modal").style.display = "flex";
 }
-function submitForm(){
-  window.location.href = "page2.html";
-  }
 
+function goPage3(){
+  let father = document.getElementById("father").value;
+  let mother = document.getElementById("mother").value;
+  let age = document.getElementById("age").value;
+  let phone = document.getElementById("phone").value;
+
+  document.getElementById("modal").style.display = "none";
+  document.getElementById("page1").classList.add("hidden");
+  document.getElementById("page3").classList.remove("hidden");
+
+  document.getElementById("out").innerHTML =
+    "Name: " + userName + "<br>" +
+    "Constituency: " + constituency + "<br>" +
+    "Father: " + father + "<br>" +
+    "Mother: " + mother + "<br>" +
+    "Age: " + age + "<br>" +
+    "Phone: " + phone;
+}
 </script>
 
 </body>
