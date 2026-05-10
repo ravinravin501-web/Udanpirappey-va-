@@ -6,257 +6,269 @@
 
 <title>udanpirappey va</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-    background:#000;
-    color:white;
-    overflow-x:hidden;
+background:#000;
+overflow-x:hidden;
+color:#fff;
 }
 
 /* BACKGROUND */
 
 body::before{
-    content:'';
-    position:fixed;
-    inset:0;
-    background:
-    linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.85)),
-    url('https://images.unsplash.com/photo-1515169067868-5387ec356754?q=80&w=1974&auto=format&fit=crop');
-    background-size:cover;
-    background-position:center;
-    z-index:-2;
+content:'';
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+background:
+linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.88)),
+url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1974&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+z-index:-3;
 }
 
 body::after{
-    content:'';
-    position:fixed;
-    inset:0;
-    background:radial-gradient(circle at center, rgba(255,0,0,0.25), transparent 60%);
-    z-index:-1;
-}
-
-/* HEADER */
-
-.top{
-    padding:25px 20px;
-    text-align:center;
-}
-
-.logo{
-    font-size:60px;
-    font-weight:800;
-    color:#ff0000;
-    text-shadow:0 0 20px red;
-}
-
-.sub{
-    font-size:22px;
-    font-weight:600;
-    letter-spacing:2px;
+content:'';
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+background:radial-gradient(circle,rgba(255,0,0,.25),transparent 70%);
+z-index:-2;
 }
 
 /* HERO */
 
 .hero{
-    text-align:center;
-    padding:10px 15px 30px;
+position:relative;
+padding:30px 15px 10px;
+text-align:center;
 }
 
-.hero h1{
-    font-size:70px;
-    line-height:1;
-    font-weight:800;
+.logo{
+font-size:75px;
+font-weight:800;
+color:#ff0000;
+text-shadow:0 0 20px red;
+line-height:1;
 }
 
-.hero h1 span{
-    color:red;
+.portal{
+font-size:24px;
+font-weight:600;
+letter-spacing:3px;
 }
 
-.hero p{
-    margin-top:10px;
-    font-size:28px;
-    font-weight:600;
-    color:#ddd;
+.quote{
+margin-top:15px;
+font-size:18px;
+color:#ddd;
+}
+
+.main-title{
+margin-top:25px;
+font-size:90px;
+font-weight:900;
+line-height:1;
+text-transform:uppercase;
+}
+
+.main-title span{
+color:red;
+}
+
+.sub-title{
+font-size:45px;
+font-weight:700;
+margin-top:10px;
+color:#f2f2f2;
 }
 
 /* LEADERS */
 
 .leaders{
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    margin-top:20px;
-    padding:0 20px;
+position:relative;
+display:flex;
+justify-content:space-between;
+align-items:flex-end;
+padding:0 10px;
+margin-top:10px;
 }
 
 .leaders img{
-    width:40%;
-    max-width:320px;
-    border-radius:20px;
-    filter:drop-shadow(0 0 25px red);
+width:36%;
+max-width:380px;
+filter:drop-shadow(0 0 30px red);
 }
 
-/* FORM */
+/* FORM BOX */
 
-.form-container{
-    width:95%;
-    max-width:800px;
-    margin:20px auto 60px;
-    background:rgba(0,0,0,0.75);
-    border:2px solid red;
-    border-radius:25px;
-    padding:35px 25px;
-    box-shadow:0 0 30px rgba(255,0,0,0.3);
-    backdrop-filter:blur(8px);
+.form-box{
+width:95%;
+max-width:820px;
+margin:-30px auto 50px;
+background:rgba(0,0,0,.78);
+border:2px solid #ff0000;
+border-radius:25px;
+padding:35px 25px;
+backdrop-filter:blur(8px);
+box-shadow:0 0 30px rgba(255,0,0,.35);
+position:relative;
+z-index:5;
 }
 
 .form-title{
-    text-align:center;
-    color:red;
-    font-size:38px;
-    font-weight:800;
-    margin-bottom:30px;
+text-align:center;
+font-size:40px;
+font-weight:800;
+color:#ff0000;
+margin-bottom:35px;
+text-transform:uppercase;
 }
 
 .form-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:22px;
 }
 
-.input-box{
-    display:flex;
-    flex-direction:column;
+.input-group{
+display:flex;
+flex-direction:column;
 }
 
-.input-box label{
-    margin-bottom:8px;
-    font-weight:500;
-    color:#fff;
+.input-group label{
+margin-bottom:10px;
+font-size:18px;
+font-weight:500;
 }
 
-.input-box input,
-.input-box select,
-.input-box textarea{
-    background:#111;
-    border:1px solid #444;
-    border-radius:12px;
-    padding:16px;
-    color:white;
-    outline:none;
-    font-size:16px;
+.input-group input,
+.input-group textarea,
+.input-group select{
+background:#0f0f0f;
+border:1px solid #444;
+border-radius:12px;
+padding:16px;
+font-size:17px;
+color:#fff;
+outline:none;
 }
 
-.input-box textarea{
-    resize:none;
-    height:120px;
+.input-group textarea{
+height:120px;
+resize:none;
 }
 
 .full{
-    grid-column:1/3;
+grid-column:1/3;
 }
 
-/* PHOTO */
+.preview-title{
+text-align:center;
+margin-top:20px;
+font-size:20px;
+}
 
 .preview{
-    width:160px;
-    height:160px;
-    border:2px solid red;
-    border-radius:15px;
-    margin:20px auto;
-    overflow:hidden;
-    background:#111;
+width:170px;
+height:170px;
+margin:20px auto;
+border:2px solid red;
+border-radius:18px;
+overflow:hidden;
+background:#111;
 }
 
 .preview img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
-/* BUTTON */
-
-button{
-    width:100%;
-    padding:18px;
-    border:none;
-    border-radius:14px;
-    background:linear-gradient(to right,#ff0000,#c40000);
-    color:white;
-    font-size:26px;
-    font-weight:700;
-    cursor:pointer;
-    transition:0.3s;
-    margin-top:10px;
+.join-btn{
+width:100%;
+padding:18px;
+border:none;
+border-radius:15px;
+background:linear-gradient(to right,#ff0000,#b80000);
+font-size:30px;
+font-weight:700;
+color:#fff;
+cursor:pointer;
+margin-top:15px;
+transition:.3s;
 }
 
-button:hover{
-    transform:scale(1.03);
-    box-shadow:0 0 25px red;
+.join-btn:hover{
+transform:scale(1.02);
+box-shadow:0 0 25px red;
 }
 
 /* FOOTER */
 
 footer{
-    text-align:center;
-    padding:30px 20px;
-    border-top:1px solid #222;
-    color:#aaa;
+padding:25px;
+text-align:center;
+font-size:18px;
+color:#ccc;
+border-top:1px solid #222;
 }
 
 footer span{
-    color:red;
-    font-weight:700;
+color:red;
+font-weight:700;
 }
 
 /* MOBILE */
 
 @media(max-width:768px){
 
-.hero h1{
-    font-size:45px;
+.main-title{
+font-size:52px;
 }
 
-.hero p{
-    font-size:18px;
+.sub-title{
+font-size:24px;
 }
 
 .form-grid{
-    grid-template-columns:1fr;
+grid-template-columns:1fr;
 }
 
 .full{
-    grid-column:auto;
+grid-column:auto;
 }
 
 .leaders{
-    flex-direction:column;
-    align-items:center;
-    gap:20px;
+flex-direction:row;
+justify-content:space-between;
 }
 
 .leaders img{
-    width:75%;
+width:45%;
 }
 
 .logo{
-    font-size:42px;
+font-size:50px;
 }
 
 .form-title{
-    font-size:28px;
+font-size:28px;
 }
 
 }
@@ -266,20 +278,25 @@ footer span{
 
 <body>
 
-<!-- TOP -->
-
-<div class="top">
-    <div class="logo">DMK</div>
-    <div class="sub">JOINING PORTAL</div>
-</div>
-
 <!-- HERO -->
 
 <section class="hero">
 
-    <h1>JOIN <span>DMK</span></h1>
+<div class="logo">DMK</div>
 
-    <p>BE A PART OF CHANGE</p>
+<div class="portal">JOINING PORTAL</div>
+
+<div class="quote">
+“ நாம் தொங்கியது முடியாத பயணம்... ”
+</div>
+
+<div class="main-title">
+JOIN <span>DMK</span>
+</div>
+
+<div class="sub-title">
+BE A PART OF CHANGE
+</div>
 
 </section>
 
@@ -287,96 +304,92 @@ footer span{
 
 <div class="leaders">
 
-    <!-- MK STALIN -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/M._K._Stalin.jpg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/M._K._Stalin.jpg">
 
-    <!-- UDHAYANIDHI -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Udhayanidhi_Stalin.jpg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Udhayanidhi_Stalin.jpg">
 
 </div>
 
 <!-- FORM -->
 
-<div class="form-container">
+<div class="form-box">
 
-    <div class="form-title">
-        MEMBERSHIP FORM
-    </div>
+<div class="form-title">
+★ Membership Form ★
+</div>
 
-    <form>
+<form>
 
-        <div class="form-grid">
+<div class="form-grid">
 
-            <div class="input-box">
-                <label>Full Name *</label>
-                <input type="text" placeholder="Enter your full name">
-            </div>
+<div class="input-group">
+<label>Full Name *</label>
+<input type="text" placeholder="Enter your full name">
+</div>
 
-            <div class="input-box">
-                <label>Mobile Number *</label>
-                <input type="number" placeholder="Enter your mobile number">
-            </div>
+<div class="input-group">
+<label>Mobile Number *</label>
+<input type="number" placeholder="Enter your mobile number">
+</div>
 
-            <div class="input-box">
-                <label>Email Address</label>
-                <input type="email" placeholder="Enter your email">
-            </div>
+<div class="input-group">
+<label>Email Address</label>
+<input type="email" placeholder="Enter your email">
+</div>
 
-            <div class="input-box">
-                <label>District *</label>
+<div class="input-group">
+<label>District *</label>
 
-                <select>
+<select>
 
-<option>Choose District</option>
+<option>Select District</option>
 <option>Chennai</option>
 <option>Coimbatore</option>
 <option>Madurai</option>
 <option>Salem</option>
 <option>Erode</option>
-<option>Trichy</option>
 <option>Tirunelveli</option>
 <option>Thoothukudi</option>
+<option>Trichy</option>
 <option>Vellore</option>
-<option>Virudhunagar</option>
 <option>Kanchipuram</option>
-<option>Cuddalore</option>
 <option>Dindigul</option>
-<option>Nagapattinam</option>
-<option>Namakkal</option>
+<option>Virudhunagar</option>
 <option>Karur</option>
 <option>Thanjavur</option>
-<option>Theni</option>
 <option>Sivagangai</option>
 <option>Krishnagiri</option>
 <option>Ramanathapuram</option>
 
-                </select>
+</select>
 
-            </div>
+</div>
 
-            <div class="input-box full">
-                <label>Address *</label>
-                <textarea placeholder="Enter your address"></textarea>
-            </div>
+<div class="input-group full">
+<label>Address *</label>
+<textarea placeholder="Enter your address"></textarea>
+</div>
 
-            <div class="input-box full">
-                <label>Upload Photo *</label>
-                <input type="file" accept="image/*" id="photo">
-            </div>
+<div class="input-group full">
+<label>Upload Photo *</label>
+<input type="file" id="photo" accept="image/*">
+</div>
 
-        </div>
+</div>
 
-        <!-- PREVIEW -->
+<div class="preview-title">
+Photo Preview
+</div>
 
-        <div class="preview">
-            <img id="previewImg" src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
-        </div>
+<div class="preview">
+<img id="previewImg" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+</div>
 
-        <button type="submit">
-            JOIN DMK
-        </button>
+<button class="join-btn">
+JOIN DMK
+</button>
 
-    </form>
+</form>
 
 </div>
 
@@ -384,38 +397,38 @@ footer span{
 
 <footer>
 
-    © 2025 DMK Joining Portal <br><br>
+© 2025 DMK Joining Portal <br><br>
 
-    Designed with ❤️ by <span>Ravin Tech</span>
+Designed with ❤️ by <span>Ravin Tech</span>
 
 </footer>
 
 <script>
 
-/* IMAGE PREVIEW */
+const photo = document.getElementById('photo');
+const preview = document.getElementById('previewImg');
 
-const photo = document.getElementById("photo");
-const preview = document.getElementById("previewImg");
+photo.addEventListener('change',function(){
 
-photo.addEventListener("change",function(){
+const file = this.files[0];
 
-    const file = this.files[0];
+if(file){
 
-    if(file){
+const reader = new FileReader();
 
-        const reader = new FileReader();
+reader.onload = function(e){
 
-        reader.onload = function(){
-            preview.src = reader.result;
-        }
+preview.src = e.target.result;
 
-        reader.readAsDataURL(file);
+}
 
-    }
+reader.readAsDataURL(file);
+
+}
 
 });
 
 </script>
 
 </body>
-  </html>
+                         </html>
