@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Udanpirappey Va Membership</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Udanpirappey Va</title>
 
 <style>
 body{
@@ -14,29 +15,47 @@ body{
 }
 
 .container{
-  margin-top:40px;
+  padding:15px;
 }
 
 h1{
   color:#ff1a1a;
-  font-size:28px;
+  font-size:24px;
+}
+
+.leaders{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin:15px 0;
+  flex-wrap:wrap;
+}
+
+.leaders img{
+  width:120px;
+  height:140px;
+  object-fit:cover;
+  border-radius:10px;
+  border:2px solid red;
 }
 
 input, select{
+  width:90%;
+  max-width:300px;
   padding:10px;
-  margin:10px;
-  width:270px;
+  margin:8px;
   border:none;
   border-radius:8px;
 }
 
 button{
-  padding:10px 25px;
+  width:90%;
+  max-width:300px;
+  padding:10px;
   background:black;
   color:white;
   border:1px solid red;
   border-radius:8px;
-  cursor:pointer;
 }
 
 button:hover{
@@ -44,8 +63,8 @@ button:hover{
 }
 
 footer{
-  margin-top:30px;
-  font-size:14px;
+  margin-top:20px;
+  font-size:12px;
   opacity:0.8;
 }
 </style>
@@ -57,11 +76,24 @@ footer{
 
 <h1>UDANPIRAPPEY VA</h1>
 
+<!-- LEADERS -->
+<div class="leaders">
+  <div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/M._K._Stalin.jpg">
+    <p>:contentReference[oaicite:2]{index=2}</p>
+  </div>
+
+  <div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Karunanidhi_2010.jpg">
+    <p>:contentReference[oaicite:3]{index=3}</p>
+  </div>
+</div>
+
+<!-- FORM -->
 <input type="text" id="name" placeholder="Enter Name"><br>
 
-<!-- KANYAKUMARI CONSTITUENCIES -->
 <select id="constituency">
-  <option value="">Select Constituency</option>
+  <option>Select Constituency (Kanyakumari)</option>
   <option>Kanyakumari</option>
   <option>Nagercoil</option>
   <option>Colachel</option>
@@ -70,9 +102,9 @@ footer{
   <option>Killiyoor</option>
 </select><br>
 
-<input type="text" id="district" placeholder="Enter District (Kanyakumari)"><br>
+<input type="text" id="district" placeholder="District"><br>
 
-<input type="file" id="photo" accept="image/*"><br>
+<input type="file" id="photo"><br>
 
 <button onclick="generateCard()">Generate Card</button>
 
@@ -87,14 +119,14 @@ function generateCard(){
   const name = document.getElementById("name").value;
   const district = document.getElementById("district").value;
   const constituency = document.getElementById("constituency").value;
-  const photoFile = document.getElementById("photo").files[0];
+  const file = document.getElementById("photo").files[0];
 
   if(!name || !district || !constituency){
     alert("Fill all fields");
     return;
   }
 
-  const id = "RAVIN" + Math.floor(Math.random()*100000);
+  const id = "RAVIN" + Math.floor(Math.random()*99999);
 
   function save(photo){
     localStorage.setItem("name", name);
@@ -106,10 +138,10 @@ function generateCard(){
     window.location.href = "card.html";
   }
 
-  if(photoFile){
+  if(file){
     const reader = new FileReader();
     reader.onload = e => save(e.target.result);
-    reader.readAsDataURL(photoFile);
+    reader.readAsDataURL(file);
   } else {
     save("");
   }
