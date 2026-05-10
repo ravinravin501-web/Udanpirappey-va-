@@ -3,157 +3,381 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Udanpirappey Va</title>
+
+<title>DMK Joining Portal</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-body{
-  margin:0;
-  font-family: Arial;
-  color:white;
-  text-align:center;
 
-  /* STALIN BACKGROUND (PUT YOUR IMAGE NAME HERE) */
-  background: url("background.jpg") no-repeat center center/cover;
-  position: relative;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:url('bg.jpg') no-repeat center center/cover;
+    min-height:100vh;
+    color:white;
+    overflow-x:hidden;
 }
 
 /* DARK OVERLAY */
 body::before{
-  content:"";
-  position:absolute;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.7);
+    content:'';
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.65);
+    z-index:-1;
 }
 
-.container{
-  position:relative;
-  padding:20px;
-  z-index:1;
+/* HEADER */
+
+.top-section{
+    text-align:center;
+    padding:30px 15px 10px;
 }
 
-h1{
-  color:#ff1a1a;
-  font-size:24px;
+.logo{
+    width:90px;
+    margin-bottom:10px;
 }
 
-input, select{
-  width:90%;
-  max-width:300px;
-  padding:10px;
-  margin:8px;
-  border:none;
-  border-radius:8px;
+.main-title{
+    font-size:58px;
+    font-weight:bold;
+    color:#ff0000;
 }
 
-button{
-  width:90%;
-  max-width:300px;
-  padding:10px;
-  background:black;
-  color:white;
-  border:1px solid red;
-  border-radius:8px;
+.sub-title{
+    font-size:18px;
+    margin-top:5px;
+    color:#fff;
 }
 
-button:hover{
-  background:red;
+.join-text{
+    margin-top:30px;
+    font-size:70px;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+.join-text span{
+    color:red;
+}
+
+.change-text{
+    font-size:30px;
+    margin-top:5px;
+    letter-spacing:2px;
+}
+
+/* LEADER IMAGES */
+
+.stalin{
+    position:fixed;
+    left:0;
+    bottom:0;
+    width:34%;
+    max-width:350px;
+}
+
+.udhay{
+    position:fixed;
+    right:0;
+    bottom:0;
+    width:34%;
+    max-width:350px;
+}
+
+/* FORM */
+
+.form-container{
+    width:90%;
+    max-width:700px;
+    margin:40px auto;
+    background:rgba(0,0,0,0.88);
+    border:2px solid red;
+    border-radius:20px;
+    padding:30px 25px;
+    box-shadow:0 0 25px rgba(255,0,0,0.4);
+}
+
+.form-title{
+    text-align:center;
+    color:red;
+    font-size:40px;
+    margin-bottom:30px;
+    font-weight:bold;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.input-box{
+    width:100%;
+}
+
+.input-box label{
+    display:block;
+    margin-bottom:8px;
+    color:white;
+    font-size:17px;
+}
+
+.input-box input,
+.input-box select,
+.input-box textarea{
+    width:100%;
+    padding:14px;
+    border:1px solid #444;
+    border-radius:10px;
+    background:#111;
+    color:white;
+    font-size:16px;
+}
+
+.input-box textarea{
+    resize:none;
+    height:120px;
+}
+
+.full{
+    grid-column:1/3;
 }
 
 /* PHOTO PREVIEW */
-.preview{
-  width:100px;
-  height:100px;
-  border-radius:50%;
-  border:2px solid red;
-  object-fit:cover;
-  margin-top:10px;
+
+.preview-box{
+    text-align:center;
+    margin-top:20px;
 }
+
+.preview-box img{
+    width:150px;
+    height:170px;
+    border:2px solid red;
+    border-radius:12px;
+    object-fit:cover;
+    margin-top:10px;
+    background:#222;
+}
+
+/* BUTTON */
+
+.join-btn{
+    width:100%;
+    padding:16px;
+    background:red;
+    border:none;
+    border-radius:12px;
+    color:white;
+    font-size:26px;
+    font-weight:bold;
+    margin-top:30px;
+    cursor:pointer;
+}
+
+.join-btn:hover{
+    background:#cc0000;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    margin-top:30px;
+    padding:20px;
+    color:#ccc;
+}
+
+.socials{
+    margin-top:15px;
+}
+
+.socials i{
+    margin:0 10px;
+    font-size:24px;
+    color:red;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.form-grid{
+    grid-template-columns:1fr;
+}
+
+.full{
+    grid-column:1/2;
+}
+
+.main-title{
+    font-size:42px;
+}
+
+.join-text{
+    font-size:45px;
+}
+
+.change-text{
+    font-size:20px;
+}
+
+.stalin,
+.udhay{
+    width:45%;
+    opacity:0.8;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- LEFT LEADER -->
+<img src="stalin.png" class="stalin">
 
-<h1>UDANPIRAPPEY VA</h1>
+<!-- RIGHT LEADER -->
+<img src="udhayanidhi.png" class="udhay">
 
-<input type="text" id="name" placeholder="Enter Name"><br>
+<div class="top-section">
 
-<select id="constituency">
-  <option>Select Kanyakumari Constituency</option>
-  <option>Kanyakumari</option>
-  <option>Nagercoil</option>
-  <option>Colachel</option>
-  <option>Padmanabhapuram</option>
-  <option>Vilavancode</option>
-  <option>Killiyoor</option>
-</select><br>
+    <!-- SUNRISE LOGO -->
+    <img src="sunrise.png" class="logo">
 
-<input type="text" id="district" placeholder="District"><br>
+    <div class="main-title">DMK</div>
 
-<input type="file" id="photo" accept="image/*" onchange="previewImage(event)"><br>
+    <div class="sub-title">JOINING PORTAL</div>
 
-<img id="preview" class="preview" style="display:none;"><br>
+    <div class="join-text">
+        JOIN <span>DMK</span>
+    </div>
 
-<button onclick="generateCard()">Generate Card</button>
+    <div class="change-text">
+        BE A PART OF CHANGE
+    </div>
+
+</div>
+
+<!-- FORM -->
+
+<div class="form-container">
+
+    <div class="form-title">
+        ★ MEMBERSHIP FORM ★
+    </div>
+
+    <div class="form-grid">
+
+        <div class="input-box">
+            <label>Full Name *</label>
+            <input type="text" placeholder="Enter your full name">
+        </div>
+
+        <div class="input-box">
+            <label>Mobile Number *</label>
+            <input type="number" placeholder="Enter your mobile number">
+        </div>
+
+        <div class="input-box">
+            <label>Email Address</label>
+            <input type="email" placeholder="Enter your email">
+        </div>
+
+        <div class="input-box">
+            <label>District *</label>
+
+            <select>
+                <option>Select District</option>
+                <option>Chennai</option>
+                <option>Coimbatore</option>
+                <option>Madurai</option>
+                <option>Salem</option>
+                <option>Trichy</option>
+            </select>
+        </div>
+
+        <div class="input-box full">
+            <label>Address *</label>
+            <textarea placeholder="Enter your address"></textarea>
+        </div>
+
+        <div class="input-box full">
+            <label>Upload Photo *</label>
+            <input type="file" accept="image/*" id="photoInput">
+        </div>
+
+    </div>
+
+    <!-- PHOTO PREVIEW -->
+
+    <div class="preview-box">
+
+        <h3>Photo Preview</h3>
+
+        <img id="preview" src="default-user.png">
+
+    </div>
+
+    <button class="join-btn">
+        <i class="fa-solid fa-users"></i> JOIN DMK
+    </button>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+    © 2025 DMK Joining Portal <br><br>
+
+    Designed with ❤️ by <span style="color:red;">Ravin Tech</span>
+
+    <div class="socials">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-youtube"></i>
+    </div>
 
 </div>
 
 <script>
-function previewImage(event){
-  const file = event.target.files[0];
-  const reader = new FileReader();
 
-  reader.onload = function(){
-    const img = document.getElementById("preview");
-    img.src = reader.result;
-    img.style.display = "block";
-  }
+const photoInput = document.getElementById("photoInput");
+const preview = document.getElementById("preview");
 
-  if(file){
-    reader.readAsDataURL(file);
-  }
-}
+photoInput.addEventListener("change", function(){
 
-function generateCard(){
-  const name = document.getElementById("name").value;
-  const district = document.getElementById("district").value;
-  const constituency = document.getElementById("constituency").value;
-  const photoFile = document.getElementById("photo").files[0];
+    const file = this.files[0];
 
-  if(!name || !district || !constituency){
-    alert("Fill all fields");
-    return;
-  }
+    if(file){
 
-  const id = "DMK" + Math.floor(Math.random()*99999);
+        const reader = new FileReader();
 
-  const reader = new FileReader();
+        reader.onload = function(e){
+            preview.src = e.target.result;
+        }
 
-  reader.onload = function(e){
+        reader.readAsDataURL(file);
+    }
 
-    localStorage.setItem("name", name);
-    localStorage.setItem("district", district);
-    localStorage.setItem("constituency", constituency);
-    localStorage.setItem("id", id);
-    localStorage.setItem("photo", e.target.result);
+});
 
-    window.location.href = "card.html";
-  }
-
-  if(photoFile){
-    reader.readAsDataURL(photoFile);
-  } else {
-    localStorage.setItem("photo", "");
-    window.location.href = "card.html";
-  }
-}
 </script>
 
 </body>
-</html>
+  </html>
 
 
 
