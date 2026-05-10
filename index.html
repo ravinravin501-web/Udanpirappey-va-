@@ -9,34 +9,33 @@
 body{
   margin:0;
   font-family: Arial;
-  background: linear-gradient(135deg, #000, #b30000);
   color:white;
   text-align:center;
+
+  /* STALIN BACKGROUND (PUT YOUR IMAGE NAME HERE) */
+  background: url("stalin.jpg") no-repeat center center/cover;
+  position: relative;
+}
+
+/* DARK OVERLAY */
+body::before{
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.7);
 }
 
 .container{
-  padding:15px;
+  position:relative;
+  padding:20px;
+  z-index:1;
 }
 
 h1{
   color:#ff1a1a;
   font-size:24px;
-}
-
-.leaders{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  margin:15px 0;
-  flex-wrap:wrap;
-}
-
-.leaders img{
-  width:120px;
-  height:140px;
-  object-fit:cover;
-  border-radius:10px;
-  border:2px solid red;
 }
 
 input, select{
@@ -62,10 +61,14 @@ button:hover{
   background:red;
 }
 
-footer{
-  margin-top:20px;
-  font-size:12px;
-  opacity:0.8;
+/* PHOTO PREVIEW */
+.preview{
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  border:2px solid red;
+  object-fit:cover;
+  margin-top:10px;
 }
 </style>
 </head>
@@ -76,24 +79,10 @@ footer{
 
 <h1>UDANPIRAPPEY VA</h1>
 
-<!-- LEADERS -->
-<div class="leaders">
-  <div>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/M._K._Stalin.jpg">
-    <p>:contentReference[oaicite:2]{index=2}</p>
-  </div>
-
-  <div>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Karunanidhi_2010.jpg">
-    <p>:contentReference[oaicite:3]{index=3}</p>
-  </div>
-</div>
-
-<!-- FORM -->
 <input type="text" id="name" placeholder="Enter Name"><br>
 
 <select id="constituency">
-  <option>Select Constituency (Kanyakumari)</option>
+  <option>Select Kanyakumari Constituency</option>
   <option>Kanyakumari</option>
   <option>Nagercoil</option>
   <option>Colachel</option>
@@ -104,46 +93,61 @@ footer{
 
 <input type="text" id="district" placeholder="District"><br>
 
-<input type="file" id="photo"><br>
+<input type="file" id="photo" accept="image/*" onchange="previewImage(event)"><br>
+
+<img id="preview" class="preview" style="display:none;"><br>
 
 <button onclick="generateCard()">Generate Card</button>
-
-<footer>
-Created by Ravin Tech
-</footer>
 
 </div>
 
 <script>
+function previewImage(event){
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function(){
+    const img = document.getElementById("preview");
+    img.src = reader.result;
+    img.style.display = "block";
+  }
+
+  if(file){
+    reader.readAsDataURL(file);
+  }
+}
+
 function generateCard(){
   const name = document.getElementById("name").value;
   const district = document.getElementById("district").value;
   const constituency = document.getElementById("constituency").value;
-  const file = document.getElementById("photo").files[0];
+  const photoFile = document.getElementById("photo").files[0];
 
   if(!name || !district || !constituency){
     alert("Fill all fields");
     return;
   }
 
-  const id = "RAVIN" + Math.floor(Math.random()*99999);
+  const id = "DMK" + Math.floor(Math.random()*99999);
 
-  function save(photo){
+  const reader = new FileReader();
+
+  reader.onload = function(e){
+
     localStorage.setItem("name", name);
     localStorage.setItem("district", district);
     localStorage.setItem("constituency", constituency);
     localStorage.setItem("id", id);
-    localStorage.setItem("photo", photo);
+    localStorage.setItem("photo", e.target.result);
 
     window.location.href = "card.html";
   }
 
-  if(file){
-    const reader = new FileReader();
-    reader.onload = e => save(e.target.result);
-    reader.readAsDataURL(file);
+  if(photoFile){
+    reader.readAsDataURL(photoFile);
   } else {
-    save("");
+    localStorage.setItem("photo", "");
+    window.location.href = "card.html";
   }
 }
 </script>
