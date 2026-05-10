@@ -109,7 +109,13 @@
     }
   </style>
 </head>
+    <ul id="constituencyList"></ul>
   <script src="constituency.js"></script>
+  <script>
+  document.getElementById("constituencyList").innerHTML =
+    constituencies.map(c => `<li>${c}</li>`).join("");
+  </script>
+  
 <body>
 
 <div class="bg"></div>
