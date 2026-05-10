@@ -38,13 +38,19 @@
       font-weight:bold;
     }
 
+    .slogan{
+      font-size:13px;
+      color:yellow;
+      margin-top:5px;
+    }
+
     .container{
       max-width:500px;
       margin:0 auto;
       height:100vh;
       display:flex;
       flex-direction:column;
-      justify-content:flex-end; /* BOX MOVED TO BOTTOM */
+      justify-content:flex-end;
       padding:20px;
     }
 
@@ -95,21 +101,18 @@
 
 <header>
   Kanyakumari District Portal
-  <div style="font-size:14px;color:yellow;margin-top:5px;">
-    தமிழ்நாடு போராடும் தமிழ்நாடு வெல்லும்
-  </div>
+  <div class="slogan">தமிழ்நாடு போராடும் தமிழ்நாடு வெல்லும்</div>
 </header>
 
 <!-- PAGE 1 -->
 <div class="container" id="page1">
   <div class="card">
-    <h2>Join Kanyakumari</h2>
+    <h2>Join / சேரவும்</h2>
 
-    <input type="text" id="name" placeholder="Your Name" />
+    <input type="text" id="name" placeholder="Name / பெயர்" />
 
-    <!-- CONSTITUENCY AS SELECT BUTTON -->
-    <select id="constituency" onchange="goNext()">
-      <option value="">Select Constituency</option>
+    <select id="constituency">
+      <option value="">Select Constituency / தொகுதியை தேர்ந்தெடுக்கவும்</option>
       <option>Nagercoil</option>
       <option>Colachel</option>
       <option>Padmanabhapuram</option>
@@ -118,19 +121,28 @@
       <option>Kanyakumari</option>
     </select>
 
-    <div class="tagline">தமிழ்நாடு வாழ்க</div>
+    <button onclick="goNext()">Continue / தொடரவும்</button>
+
+    <div class="tagline">தமிழ்நாடு போராடும் தமிழ்நாடு வெல்லும்</div>
   </div>
 </div>
 
 <!-- PAGE 2 -->
 <div class="container hidden" id="page2">
   <div class="card">
-    <h2>Welcome</h2>
+    <h2>Details / விவரங்கள்</h2>
 
-    <h3 id="showName"></h3>
-    <p id="showConstituency"></p>
+    <input type="text" id="showName" placeholder="Name / பெயர்" />
 
-    <div class="tagline">தமிழ்நாடு வாழ்க</div>
+    <input type="text" id="showConstituency" placeholder="Constituency / தொகுதி" readonly />
+
+    <input type="number" id="age" placeholder="Age / வயது" />
+
+    <input type="text" id="phone" placeholder="Phone Number / தொலைபேசி" />
+
+    <button onclick="submitFinal()">Submit / சமர்ப்பிக்கவும்</button>
+
+    <div class="tagline">தமிழ்நாடு போராடும் தமிழ்நாடு வெல்லும்</div>
   </div>
 </div>
 
@@ -140,18 +152,24 @@ function goNext(){
   let constituency = document.getElementById("constituency").value;
 
   if(name === "" || constituency === ""){
+    alert("Fill all fields / அனைத்தையும் நிரப்பவும்");
     return;
   }
 
   document.getElementById("page1").classList.add("hidden");
   document.getElementById("page2").classList.remove("hidden");
 
-  document.getElementById("showName").innerText = "Name: " + name;
-  document.getElementById("showConstituency").innerText = "Constituency: " + constituency;
+  document.getElementById("showName").value = name;
+  document.getElementById("showConstituency").value = constituency;
+}
+
+function submitFinal(){
+  alert("Submitted Successfully / வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது");
 }
 </script>
 
 </body>
 </html>
+
 
 
