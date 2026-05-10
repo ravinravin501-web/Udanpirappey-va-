@@ -347,12 +347,79 @@ body::before{
 
     <!-- BUTTON -->
 
-    <button class="join-btn"
-    onclick="goToCard()">
+<script>
 
-        <i class="fa-solid fa-users"></i>
+/* PHOTO PREVIEW */
 
-        JOIN DMK
+const photoInput =
+document.getElementById("photoInput");
+
+const preview =
+document.getElementById("preview");
+
+photoInput.addEventListener("change", function(){
+
+    const file = this.files[0];
+
+    if(file){
+
+        const reader = new FileReader();
+
+        reader.onload = function(e){
+
+            preview.src = e.target.result;
+
+        }
+
+        reader.readAsDataURL(file);
+
+    }
+
+});
+
+/* REDIRECT TO CARD */
+
+function goToCard(){
+
+    // SAVE DATA
+
+    localStorage.setItem(
+        "name",
+        document.getElementById("name").value
+    );
+
+    localStorage.setItem(
+        "mobile",
+        document.getElementById("mobile").value
+    );
+
+    localStorage.setItem(
+        "email",
+        document.getElementById("email").value
+    );
+
+    localStorage.setItem(
+        "district",
+        document.getElementById("district").value
+    );
+
+    localStorage.setItem(
+        "address",
+        document.getElementById("address").value
+    );
+
+    localStorage.setItem(
+        "photo",
+        preview.src
+    );
+
+    // GO TO CARD PAGE
+
+    window.location.href = "./card.html";
+
+}
+
+</script>
 
     </button>
 
