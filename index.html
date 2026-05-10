@@ -6,7 +6,8 @@
 
 <title>DMK Joining Portal</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
 <style>
 
@@ -25,54 +26,13 @@ body{
 }
 
 /* DARK OVERLAY */
+
 body::before{
     content:'';
     position:fixed;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.65);
+    inset:0;
+    background:rgba(0,0,0,0.7);
     z-index:-1;
-}
-
-/* HEADER */
-
-.top-section{
-    text-align:center;
-    padding:30px 15px 10px;
-}
-
-.logo{
-    width:90px;
-    margin-bottom:10px;
-}
-
-.main-title{
-    font-size:58px;
-    font-weight:bold;
-    color:#ff0000;
-}
-
-.sub-title{
-    font-size:18px;
-    margin-top:5px;
-    color:#fff;
-}
-
-.join-text{
-    margin-top:30px;
-    font-size:70px;
-    font-weight:bold;
-    text-transform:uppercase;
-}
-
-.join-text span{
-    color:red;
-}
-
-.change-text{
-    font-size:30px;
-    margin-top:5px;
-    letter-spacing:2px;
 }
 
 /* LEADER IMAGES */
@@ -81,7 +41,7 @@ body::before{
     position:fixed;
     left:0;
     bottom:0;
-    width:34%;
+    width:35%;
     max-width:350px;
 }
 
@@ -89,27 +49,65 @@ body::before{
     position:fixed;
     right:0;
     bottom:0;
-    width:34%;
+    width:35%;
     max-width:350px;
+}
+
+/* TOP SECTION */
+
+.top-section{
+    text-align:center;
+    padding:25px 15px;
+}
+
+.logo{
+    width:90px;
+    margin-bottom:10px;
+}
+
+.main-title{
+    font-size:60px;
+    font-weight:bold;
+    color:red;
+}
+
+.portal{
+    font-size:20px;
+    margin-top:5px;
+}
+
+.join-title{
+    margin-top:30px;
+    font-size:70px;
+    font-weight:bold;
+}
+
+.join-title span{
+    color:red;
+}
+
+.change-text{
+    font-size:28px;
+    margin-top:10px;
 }
 
 /* FORM */
 
 .form-container{
-    width:90%;
-    max-width:700px;
-    margin:40px auto;
+    width:92%;
+    max-width:720px;
+    margin:20px auto;
     background:rgba(0,0,0,0.88);
     border:2px solid red;
     border-radius:20px;
-    padding:30px 25px;
-    box-shadow:0 0 25px rgba(255,0,0,0.4);
+    padding:30px 20px;
+    box-shadow:0 0 25px rgba(255,0,0,0.5);
 }
 
 .form-title{
     text-align:center;
     color:red;
-    font-size:40px;
+    font-size:38px;
     margin-bottom:30px;
     font-weight:bold;
 }
@@ -126,8 +124,7 @@ body::before{
 
 .input-box label{
     display:block;
-    margin-bottom:8px;
-    color:white;
+    margin-bottom:10px;
     font-size:17px;
 }
 
@@ -135,10 +132,10 @@ body::before{
 .input-box select,
 .input-box textarea{
     width:100%;
-    padding:14px;
+    padding:15px;
+    background:#111;
     border:1px solid #444;
     border-radius:10px;
-    background:#111;
     color:white;
     font-size:16px;
 }
@@ -152,18 +149,18 @@ body::before{
     grid-column:1/3;
 }
 
-/* PHOTO PREVIEW */
+/* PREVIEW */
 
 .preview-box{
     text-align:center;
-    margin-top:20px;
+    margin-top:30px;
 }
 
 .preview-box img{
     width:150px;
     height:170px;
     border:2px solid red;
-    border-radius:12px;
+    border-radius:15px;
     object-fit:cover;
     margin-top:10px;
     background:#222;
@@ -174,13 +171,13 @@ body::before{
 .join-btn{
     width:100%;
     padding:16px;
+    margin-top:30px;
     background:red;
     border:none;
     border-radius:12px;
     color:white;
-    font-size:26px;
+    font-size:28px;
     font-weight:bold;
-    margin-top:30px;
     cursor:pointer;
 }
 
@@ -203,8 +200,8 @@ body::before{
 
 .socials i{
     margin:0 10px;
-    font-size:24px;
     color:red;
+    font-size:24px;
 }
 
 /* MOBILE */
@@ -220,20 +217,20 @@ body::before{
 }
 
 .main-title{
-    font-size:42px;
+    font-size:45px;
 }
 
-.join-text{
+.join-title{
     font-size:45px;
 }
 
 .change-text{
-    font-size:20px;
+    font-size:18px;
 }
 
 .stalin,
 .udhay{
-    width:45%;
+    width:42%;
     opacity:0.8;
 }
 
@@ -244,22 +241,23 @@ body::before{
 
 <body>
 
-<!-- LEFT LEADER -->
+<!-- LEFT IMAGE -->
 <img src="stalin.png" class="stalin">
 
-<!-- RIGHT LEADER -->
+<!-- RIGHT IMAGE -->
 <img src="udhayanidhi.png" class="udhay">
+
+<!-- TOP SECTION -->
 
 <div class="top-section">
 
-    <!-- SUNRISE LOGO -->
     <img src="sunrise.png" class="logo">
 
     <div class="main-title">DMK</div>
 
-    <div class="sub-title">JOINING PORTAL</div>
+    <div class="portal">JOINING PORTAL</div>
 
-    <div class="join-text">
+    <div class="join-title">
         JOIN <span>DMK</span>
     </div>
 
@@ -281,40 +279,55 @@ body::before{
 
         <div class="input-box">
             <label>Full Name *</label>
-            <input type="text" placeholder="Enter your full name">
+            <input type="text" id="name"
+            placeholder="Enter your full name">
         </div>
 
         <div class="input-box">
             <label>Mobile Number *</label>
-            <input type="number" placeholder="Enter your mobile number">
+            <input type="number" id="mobile"
+            placeholder="Enter your mobile number">
         </div>
 
         <div class="input-box">
             <label>Email Address</label>
-            <input type="email" placeholder="Enter your email">
+            <input type="email" id="email"
+            placeholder="Enter your email">
         </div>
 
         <div class="input-box">
             <label>District *</label>
 
-            <select>
+            <select id="district">
+
                 <option>Select District</option>
                 <option>Chennai</option>
-                <option>Coimbatore</option>
                 <option>Madurai</option>
+                <option>Coimbatore</option>
                 <option>Salem</option>
                 <option>Trichy</option>
+
             </select>
+
         </div>
 
         <div class="input-box full">
+
             <label>Address *</label>
-            <textarea placeholder="Enter your address"></textarea>
+
+            <textarea id="address"
+            placeholder="Enter your address"></textarea>
+
         </div>
 
         <div class="input-box full">
+
             <label>Upload Photo *</label>
-            <input type="file" accept="image/*" id="photoInput">
+
+            <input type="file"
+            id="photoInput"
+            accept="image/*">
+
         </div>
 
     </div>
@@ -325,12 +338,20 @@ body::before{
 
         <h3>Photo Preview</h3>
 
-        <img id="preview" src="default-user.png">
+        <img src="default-user.png"
+        id="preview">
 
     </div>
 
-    <button class="join-btn">
-        <i class="fa-solid fa-users"></i> JOIN DMK
+    <!-- BUTTON -->
+
+    <button class="join-btn"
+    onclick="goToCard()">
+
+        <i class="fa-solid fa-users"></i>
+
+        JOIN DMK
+
     </button>
 
 </div>
@@ -341,23 +362,37 @@ body::before{
 
     © 2025 DMK Joining Portal <br><br>
 
-    Designed with ❤️ by <span style="color:red;">Ravin Tech</span>
+    Designed with ❤️ by
+    <span style="color:red;">
+        Ravin Tech
+    </span>
 
     <div class="socials">
+
         <i class="fab fa-facebook"></i>
+
         <i class="fab fa-twitter"></i>
+
         <i class="fab fa-instagram"></i>
+
         <i class="fab fa-youtube"></i>
+
     </div>
 
 </div>
 
 <script>
 
-const photoInput = document.getElementById("photoInput");
-const preview = document.getElementById("preview");
+/* PHOTO PREVIEW */
 
-photoInput.addEventListener("change", function(){
+const photoInput =
+document.getElementById("photoInput");
+
+const preview =
+document.getElementById("preview");
+
+photoInput.addEventListener("change",
+function(){
 
     const file = this.files[0];
 
@@ -366,18 +401,61 @@ photoInput.addEventListener("change", function(){
         const reader = new FileReader();
 
         reader.onload = function(e){
+
             preview.src = e.target.result;
+
         }
 
         reader.readAsDataURL(file);
+
     }
 
 });
 
+/* GO TO CARD PAGE */
+
+function goToCard(){
+
+    localStorage.setItem(
+        "name",
+        document.getElementById("name").value
+    );
+
+    localStorage.setItem(
+        "mobile",
+        document.getElementById("mobile").value
+    );
+
+    localStorage.setItem(
+        "email",
+        document.getElementById("email").value
+    );
+
+    localStorage.setItem(
+        "district",
+        document.getElementById("district").value
+    );
+
+    localStorage.setItem(
+        "address",
+        document.getElementById("address").value
+    );
+
+    localStorage.setItem(
+        "photo",
+        preview.src
+    );
+
+    /* REDIRECT */
+
+    window.location.href = "card.html";
+
+}
+
 </script>
 
 </body>
-  </html>
+</html>
 
 
 
