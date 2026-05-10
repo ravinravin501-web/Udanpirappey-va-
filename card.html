@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Membership Card</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: linear-gradient(135deg, #000, #8b0000);
+  font-family: Arial;
+  color:white;
+}
+
+.card{
+  width:340px;
+  height:430px;
+  background: linear-gradient(145deg, #b30000, #000);
+  border-radius:20px;
+  box-shadow:0 0 25px red;
+  padding:20px;
+  text-align:center;
+  position:relative;
+}
+
+h2{
+  margin:5px 0;
+}
+
+.profile{
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  border:3px solid white;
+  object-fit:cover;
+}
+
+.info{
+  text-align:left;
+  margin-top:15px;
+  line-height:1.8;
+  padding:10px;
+}
+
+.id{
+  position:absolute;
+  bottom:15px;
+  right:15px;
+  font-size:12px;
+  opacity:0.8;
+}
+
+.bottom{
+  position:absolute;
+  bottom:15px;
+  left:15px;
+  font-size:12px;
+  opacity:0.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>UDANPIRAPPEY VA</h2>
+
+<img id="photo" class="profile">
+
+<div class="info">
+  <p><b>Name:</b> <span id="name"></span></p>
+  <p><b>District:</b> <span id="district"></span></p>
+  <p><b>Constituency:</b> <span id="constituency"></span></p>
+</div>
+
+<div class="id" id="id"></div>
+
+<div class="bottom">Created by Ravin Tech</div>
+
+</div>
+
+<script>
+document.getElementById("name").innerText = localStorage.getItem("name");
+document.getElementById("district").innerText = localStorage.getItem("district");
+document.getElementById("constituency").innerText = localStorage.getItem("constituency");
+document.getElementById("id").innerText = localStorage.getItem("id");
+
+const photo = localStorage.getItem("photo");
+
+document.getElementById("photo").src =
+photo && photo !== "" ? photo : "https://via.placeholder.com/110";
+</script>
+
+</body>
+</html>
