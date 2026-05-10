@@ -3,37 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DMK Joining Portal</title>
+  <title>Kanyakumari Portal</title>
+
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
 
     body{
-      background:#0b0b0b;
       color:#fff;
       overflow-x:hidden;
     }
 
-    /* Background */
+    /* YOUR BACKGROUND IMAGE HERE */
     .bg{
       position:fixed;
+      top:0;
+      left:0;
       width:100%;
       height:100%;
-      background:
-        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-        url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/M._K._Stalin.jpg/440px-M._K._Stalin.jpg') left center/45% auto no-repeat,
-        url('https://upload.wikimedia.org/wikipedia/commons/9/9e/Udhayanidhi_Stalin.jpg') right center/45% auto no-repeat;
-      background-size:cover;
+      background:url('background.jpg') center/cover no-repeat;
+      filter:brightness(0.35);
       z-index:-1;
     }
 
     header{
       text-align:center;
-      padding:20px;
-      background:rgba(255,0,0,0.6);
-    }
-
-    header h1{
-      font-size:22px;
+      padding:18px;
+      background:rgba(0,0,0,0.6);
+      font-size:20px;
+      font-weight:bold;
     }
 
     .container{
@@ -46,7 +48,7 @@
       background:rgba(0,0,0,0.7);
       padding:20px;
       border-radius:15px;
-      box-shadow:0 0 15px red;
+      box-shadow:0 0 15px #000;
     }
 
     input, select{
@@ -60,7 +62,7 @@
     button{
       width:100%;
       padding:12px;
-      background:red;
+      background:#e91e63;
       border:none;
       color:#fff;
       font-size:16px;
@@ -69,209 +71,86 @@
     }
 
     button:hover{
-      background:darkred;
+      background:#c2185b;
     }
 
     .hidden{display:none;}
 
-    .card-result{
-      text-align:center;
-    }
-
-    .profile{
-      width:100px;
-      height:100px;
-      border-radius:50%;
-      margin:auto;
-      border:3px solid red;
-      background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/M._K._Stalin.jpg/440px-M._K._Stalin.jpg') center/cover;
-    }
-
-    .profile2{
-      width:100px;
-      height:100px;
-      border-radius:50%;
-      margin:auto;
-      border:3px solid red;
-      background:url('https://upload.wikimedia.org/wikipedia/commons/9/9e/Udhayanidhi_Stalin.jpg') center/cover;
+    ul{
+      margin-top:10px;
+      padding-left:20px;
+      max-height:250px;
+      overflow:auto;
     }
 
     .tagline{
-      text-align:center;
       margin-top:10px;
       color:yellow;
+      text-align:center;
       font-weight:bold;
-    }
-
-    ul{
-      text-align:left;
-      margin-top:10px;
-      max-height:200px;
-      overflow:auto;
-      padding-left:20px;
     }
   </style>
 </head>
+
 <body>
 
 <div class="bg"></div>
 
 <header>
-  <h1>DMK Joining Portal</h1>
+  Kanyakumari District Portal
 </header>
 
 <!-- PAGE 1 -->
 <div class="container" id="page1">
   <div class="card">
-    <h2>Join DMK</h2>
+    <h2>Join Kanyakumari Portal</h2>
+
     <input type="text" id="name" placeholder="Your Name" />
     <input type="number" id="age" placeholder="Age" />
 
-    <select id="district">
-      <option>Select District</option>
-      <option>Ariyalur</option>
-      <option>Chengalpattu</option>
-      <option>Chennai</option>
-      <option>Coimbatore</option>
-      <option>Cuddalore</option>
-      <option>Dharmapuri</option>
-      <option>Dindigul</option>
-      <option>Erode</option>
-      <option>Kallakurichi</option>
-      <option>Kancheepuram</option>
-      <option>Kanyakumari</option>
-      <option>Karur</option>
-      <option>Krishnagiri</option>
-      <option>Madurai</option>
-      <option>Mayiladuthurai</option>
-      <option>Nagapattinam</option>
-      <option>Namakkal</option>
-      <option>Nilgiris</option>
-      <option>Perambalur</option>
-      <option>Pudukkottai</option>
-      <option>Ramanathapuram</option>
-      <option>Ranipet</option>
-      <option>Salem</option>
-      <option>Sivaganga</option>
-      <option>Tenkasi</option>
-      <option>Thanjavur</option>
-      <option>Theni</option>
-      <option>Thoothukudi</option>
-      <option>Tiruchirappalli</option>
-      <option>Tirunelveli</option>
-      <option>Tirupathur</option>
-      <option>Tiruppur</option>
-      <option>Tiruvallur</option>
-      <option>Tiruvannamalai</option>
-      <option>Tiruvarur</option>
-      <option>Vellore</option>
-      <option>Viluppuram</option>
-      <option>Virudhunagar</option>
-    </select>
+    <button onclick="submitForm()">Submit</button>
 
-    <button onclick="submitForm()">Join Now</button>
-
-    <div class="tagline">தமிழ்நாடு போராடும் தமிழ்நாடு வெல்லும்</div>
+    <div class="tagline">தமிழ்நாடு வாழ்க</div>
   </div>
 </div>
 
 <!-- PAGE 2 -->
 <div class="container hidden" id="page2">
-  <div class="card card-result">
-    <h2>Welcome Member</h2>
-    <div class="profile"></div>
-    <div class="profile2" style="margin-top:10px;"></div>
+  <div class="card">
+    <h2>Welcome</h2>
 
     <h3 id="showName"></h3>
-    <p id="showDistrict"></p>
 
-    <h4>Constituency List</h4>
-    <div>
-      <h4>Constituency List (All 234 Assembly Constituencies)</h4>
+    <h4>Kanyakumari Constituencies</h4>
+    <ul>
+      <li>Nagercoil</li>
+      <li>Colachel</li>
+      <li>Padmanabhapuram</li>
+      <li>Vilavancode</li>
+      <li>Killiyoor</li>
+      <li>Kanyakumari</li>
+    </ul>
 
-<input type="text" id="searchBox" placeholder="Search constituency..." onkeyup="filterConstituency()" style="width:100%;padding:10px;margin:10px 0;border-radius:8px;border:none;" />
-
-<ul id="constituencyList"></ul>
-
-<script>
-const constituencies = [
-  "Dr. Radhakrishnan Nagar","Perambur","Kolathur","Villivakkam","Thiru-Vi-Ka Nagar",
-  "Egmore","Royapuram","Harbour","Chepauk-Thiruvallikeni","Thousand Lights",
-  "Anna Nagar","Virugambakkam","Saidapet","Mylapore","Velachery","Sholinganallur",
-
-  "Coimbatore North","Coimbatore South","Singanallur","Kinathukadavu","Pollachi",
-  "Valparai","Sulur","Kavundampalayam","Thondamuthur","Mettupalayam",
-
-  "Madurai East","Madurai West","Madurai North","Madurai South","Madurai Central",
-  "Thiruparankundram","Melur","Sholavandan","Usilampatti","Periyakulam",
-
-  "Srirangam","Tiruchirappalli West","Tiruchirappalli East","Thiruverumbur",
-  "Lalgudi","Manapparai","Musiri","Thuraiyur","Perambalur",
-
-  "Salem North","Salem South","Salem West","Omalur","Edappadi","Mettur",
-  "Yercaud","Attur","Gangavalli","Veerapandi","Sankari",
-
-  "Alandur","Tambaram","Pallavaram","Chrompet","Tiruvottiyur","Avadi",
-  "Maduravoyal","Ambattur","Tiruvallur","Poonamallee",
-  "Kancheepuram","Uthiramerur","Sriperumbudur","Arakkonam","Sholingur",
-  "Ranipet","Arcot","Vellore","Anaikattu","Gudiyattam",
-  "Ambur","Vaniyambadi","Tirupattur","Uthangarai","Krishnagiri",
-  "Hosur","Veppanahalli","Palacode","Pennagaram","Dharmapuri",
-  "Harur","Chengam","Tiruvannamalai","Kilpennathur","Polur",
-  "Arani","Cheyyar","Vandavasi","Gingee","Tindivanam",
-  "Mailam","Vanur","Villupuram","Vikravandi","Ulundurpet",
-  "Rishivandiyam","Kallakurichi","Sankarapuram","Chidambaram","Kattumannarkoil",
-  "Bhuvanagiri","Sirkazhi","Mayiladuthurai","Poompuhar","Nagapattinam",
-  "Kilvelur","Vedaranyam","Thiruvarur","Mannargudi","Nannilam",
-  "Thiruthuraipoondi","Thanjavur","Orathanadu","Papanasam","Pattukkottai",
-  "Peravurani","Kumbakonam","Thiruvidaimarudur","Theni","Bodinayakanur",
-  "Periyakulam","Andipatti","Uthamapalayam","Ramanathapuram","Paramakudi",
-  "Tiruvadanai","Mudukulathur","Sivaganga","Manamadurai","Tiruppattur (Sivaganga)",
-  "Karaikudi","Alangudi","Aranthangi","Pudukkottai","Viralimalai",
-  "Vedasandur","Oddanchatram","Palani","Dindigul","Natham",
-  "Nilakkottai","Cumbum","Sankarankovil","Tenkasi",
-  "Alangulam","Kadayanallur","Ambasamudram","Palayamkottai","Radhapuram",
-  "Nanguneri","Tirunelveli","Thoothukudi","Tiruchendur",
-  "Srivaikuntam","Ottapidaram","Kovilpatti","Vilathikulam"
-];
-
-const listEl = document.getElementById("constituencyList");
-const searchBox = document.getElementById("searchBox");
-
-function renderList(data){
-  listEl.innerHTML = data.map(c => `<li>${c}</li>`).join("");
-}
-
-function filterConstituency(){
-  const value = searchBox.value.toLowerCase();
-  const filtered = constituencies.filter(c => c.toLowerCase().includes(value));
-  renderList(filtered);
-}
-
-renderList(constituencies);
-</script>
-
-    <p class="tagline">தமிழ்நாடு போராடும் தமிழ்நாடு வெல்லும்</p>
+    <div class="tagline">தமிழ்நாடு வாழ்க</div>
   </div>
 </div>
 
 <script>
 function submitForm(){
-  let name = document.getElementById('name').value;
-  let district = document.getElementById('district').value;
+  let name = document.getElementById("name").value;
 
-  if(name === '' || district === 'Select District'){
-    alert('Fill all fields');
+  if(name === ""){
+    alert("Enter your name");
     return;
   }
 
-  document.getElementById('page1').classList.add('hidden');
-  document.getElementById('page2').classList.remove('hidden');
+  document.getElementById("page1").classList.add("hidden");
+  document.getElementById("page2").classList.remove("hidden");
 
-  document.getElementById('showName').innerText = name;
-  document.getElementById('showDistrict').innerText = district;
+  document.getElementById("showName").innerText = name;
 }
 </script>
 
 </body>
 </html>
+
