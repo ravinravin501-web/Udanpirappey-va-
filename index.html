@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Udanpirappey va</title>
+  <title>udanpirappey va</title>
 
   <style>
 
@@ -175,6 +175,16 @@
       }
     }
 
+    #preview{
+      width:120px;
+      height:120px;
+      object-fit:cover;
+      border-radius:15px;
+      display:none;
+      margin:auto;
+      border:3px solid #ffcc00;
+    }
+
   </style>
 </head>
 
@@ -188,12 +198,14 @@
   </div>
 
   <section class="hero">
-    <h1>Join DMK Today</h1>
+
+    <h1>udanpirappey va</h1>
 
     <p>
       Become a part of the movement for social justice,
       development and youth empowerment.
     </p>
+
   </section>
 
   <div class="join-box">
@@ -216,6 +228,7 @@
     </div>
 
     <div class="input-group">
+
       <label>District</label>
 
       <select id="district">
@@ -262,11 +275,31 @@
         <option>Virudhunagar</option>
 
       </select>
+
     </div>
 
     <div class="input-group">
       <label>Address</label>
       <textarea rows="4" placeholder="Enter your address"></textarea>
+    </div>
+
+    <div class="input-group">
+      <label>Upload Photo</label>
+
+      <input 
+        type="file" 
+        id="photo" 
+        accept="image/*"
+      >
+    </div>
+
+    <div class="input-group">
+
+      <img 
+        id="preview"
+        src=""
+      >
+
     </div>
 
     <button class="join-btn" onclick="joinNow()">
@@ -307,7 +340,29 @@
 
     }
 
+    document.getElementById("photo").addEventListener("change", function(event){
+
+      const file = event.target.files[0];
+
+      if(file){
+
+        const reader = new FileReader();
+
+        reader.onload = function(e){
+
+          const preview = document.getElementById("preview");
+
+          preview.src = e.target.result;
+          preview.style.display = "block";
+        };
+
+        reader.readAsDataURL(file);
+
+      }
+
+    });
+
   </script>
 
 </body>
-</html>
+  </html>
