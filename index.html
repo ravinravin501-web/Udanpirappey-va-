@@ -275,6 +275,60 @@ font-size:28px;
 
 </style>
 </head>
+  <script>
+
+function generateCard(){
+
+    let name = document.getElementById("name").value;
+
+    let father = document.getElementById("father").value;
+
+    let age = document.getElementById("age").value;
+
+    let district = document.getElementById("district").value;
+
+    document.getElementById("cardName").innerHTML = name;
+
+    document.getElementById("cardFather").innerHTML = father;
+
+    document.getElementById("cardAge").innerHTML = age;
+
+    document.getElementById("cardDistrict").innerHTML = district;
+
+    let today = new Date().toLocaleDateString('en-GB');
+
+    document.getElementById("cardDate").innerHTML = today;
+
+    let randomId = "DMK" + Math.floor(100000 + Math.random() * 900000);
+
+    document.getElementById("memberId").innerHTML = randomId;
+
+    let file = document.getElementById("photo").files[0];
+
+    if(file){
+
+        let reader = new FileReader();
+
+        reader.onload = function(e){
+
+            document.getElementById("profilePreview").src = e.target.result;
+
+        }
+
+        reader.readAsDataURL(file);
+
+    }
+
+    document.getElementById("cardPage").style.display = "block";
+
+    window.scrollTo({
+        top: document.getElementById("cardPage").offsetTop,
+        behavior:'smooth'
+    });
+
+}
+
+  </script>
 
 <body>
 
@@ -388,6 +442,107 @@ Photo Preview
 <button class="join-btn">
 JOIN DMK
 </button>
+  <!-- ADD THIS BUTTON -->
+
+<button onclick="generateCard()" class="join-btn">
+Join Now
+</button>
+
+<!-- ADD THIS FULL CARD CODE BELOW THE BUTTON -->
+
+<div id="cardPage" style="display:none;">
+
+<div class="card-container">
+
+<!-- FRONT CARD -->
+
+<div class="id-card">
+
+<div class="top-section">
+
+<img id="profilePreview"
+src="https://i.ibb.co/7QpKsCX/user.png"
+class="profile-img">
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=DMK"
+class="qr-img">
+
+<img src="https://upload.wikimedia.org/wikipedia/en/5/5f/Dravida_Munnetra_Kazhagam_logo.png"
+class="dmk-logo">
+
+<div class="title">
+திராவிட முன்னேற்றக் கழகம்
+</div>
+
+<div class="subtitle">
+இணையவழி உறுப்பினர் அட்டை
+</div>
+
+<div class="member-btn">
+உறுப்பினர்
+</div>
+
+</div>
+
+<div class="bottom-menu">
+
+<span>கடமை</span>
+
+<span>கண்ணியம்</span>
+
+<span>கட்டுப்பாடு</span>
+
+</div>
+
+</div>
+
+<!-- BACK CARD -->
+
+<div class="back-card">
+
+<h2>
+இணையவழி உறுப்பினர் அட்டை
+</h2>
+
+<div class="details-box">
+
+<p>
+பெயர் :
+<span id="cardName"></span>
+</p>
+
+<p>
+தந்தை / கணவர் பெயர் :
+<span id="cardFather"></span>
+</p>
+
+<p>
+வயது :
+<span id="cardAge"></span>
+</p>
+
+<p>
+சேரும் தேதி :
+<span id="cardDate"></span>
+</p>
+
+<p>
+மாவட்டம் :
+<span id="cardDistrict"></span>
+</p>
+
+<p>
+உறுப்பினர் ஐடி :
+<span id="memberId"></span>
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </form>
 
@@ -402,6 +557,7 @@ JOIN DMK
 Designed with ❤️ by <span>Ravin Tech</span>
 
 </footer>
+  
 
 <script>
 
