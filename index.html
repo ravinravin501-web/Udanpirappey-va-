@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>udanpirappey va</title>
+<title>DMK Joining Portal</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -219,6 +219,54 @@ transform:scale(1.02);
 box-shadow:0 0 25px red;
 }
 
+/* CARD */
+
+.member-card{
+display:none;
+margin-top:40px;
+}
+
+.card-box{
+background:linear-gradient(135deg,#111,#1b0000);
+border:2px solid red;
+border-radius:25px;
+padding:25px;
+box-shadow:0 0 30px rgba(255,0,0,.4);
+text-align:center;
+}
+
+.card-box h2{
+font-size:38px;
+color:red;
+margin-bottom:20px;
+}
+
+.card-photo{
+width:130px;
+height:130px;
+border-radius:15px;
+border:2px solid red;
+object-fit:cover;
+margin-bottom:20px;
+}
+
+.card-name{
+font-size:32px;
+font-weight:700;
+}
+
+.card-details{
+margin-top:10px;
+font-size:18px;
+}
+
+.card-status{
+margin-top:25px;
+font-size:20px;
+color:#ff4d4d;
+font-weight:700;
+}
+
 /* FOOTER */
 
 footer{
@@ -275,60 +323,6 @@ font-size:28px;
 
 </style>
 </head>
-  <script>
-
-function generateCard(){
-
-    let name = document.getElementById("name").value;
-
-    let father = document.getElementById("father").value;
-
-    let age = document.getElementById("age").value;
-
-    let district = document.getElementById("district").value;
-
-    document.getElementById("cardName").innerHTML = name;
-
-    document.getElementById("cardFather").innerHTML = father;
-
-    document.getElementById("cardAge").innerHTML = age;
-
-    document.getElementById("cardDistrict").innerHTML = district;
-
-    let today = new Date().toLocaleDateString('en-GB');
-
-    document.getElementById("cardDate").innerHTML = today;
-
-    let randomId = "DMK" + Math.floor(100000 + Math.random() * 900000);
-
-    document.getElementById("memberId").innerHTML = randomId;
-
-    let file = document.getElementById("photo").files[0];
-
-    if(file){
-
-        let reader = new FileReader();
-
-        reader.onload = function(e){
-
-            document.getElementById("profilePreview").src = e.target.result;
-
-        }
-
-        reader.readAsDataURL(file);
-
-    }
-
-    document.getElementById("cardPage").style.display = "block";
-
-    window.scrollTo({
-        top: document.getElementById("cardPage").offsetTop,
-        behavior:'smooth'
-    });
-
-}
-
-  </script>
 
 <body>
 
@@ -372,18 +366,18 @@ BE A PART OF CHANGE
 ★ Membership Form ★
 </div>
 
-<form>
+<form id="joinForm">
 
 <div class="form-grid">
 
 <div class="input-group">
 <label>Full Name *</label>
-<input type="text" placeholder="Enter your full name">
+<input type="text" id="name" placeholder="Enter your full name" required>
 </div>
 
 <div class="input-group">
 <label>Mobile Number *</label>
-<input type="number" placeholder="Enter your mobile number">
+<input type="number" id="mobile" placeholder="Enter your mobile number" required>
 </div>
 
 <div class="input-group">
@@ -394,26 +388,48 @@ BE A PART OF CHANGE
 <div class="input-group">
 <label>District *</label>
 
-<select>
+<select id="district" required>
 
 <option>Select District</option>
+
+<option>Ariyalur</option>
+<option>Chengalpattu</option>
 <option>Chennai</option>
 <option>Coimbatore</option>
-<option>Madurai</option>
-<option>Salem</option>
-<option>Erode</option>
-<option>Tirunelveli</option>
-<option>Thoothukudi</option>
-<option>Trichy</option>
-<option>Vellore</option>
-<option>Kanchipuram</option>
+<option>Cuddalore</option>
+<option>Dharmapuri</option>
 <option>Dindigul</option>
-<option>Virudhunagar</option>
+<option>Erode</option>
+<option>Kallakurichi</option>
+<option>Kancheepuram</option>
+<option>Kanniyakumari</option>
 <option>Karur</option>
-<option>Thanjavur</option>
-<option>Sivagangai</option>
 <option>Krishnagiri</option>
+<option>Madurai</option>
+<option>Mayiladuthurai</option>
+<option>Nagapattinam</option>
+<option>Namakkal</option>
+<option>Nilgiris</option>
+<option>Perambalur</option>
+<option>Pudukkottai</option>
 <option>Ramanathapuram</option>
+<option>Ranipet</option>
+<option>Salem</option>
+<option>Sivaganga</option>
+<option>Tenkasi</option>
+<option>Thanjavur</option>
+<option>Theni</option>
+<option>Thoothukudi</option>
+<option>Tiruchirappalli</option>
+<option>Tirunelveli</option>
+<option>Tirupathur</option>
+<option>Tiruppur</option>
+<option>Tiruvallur</option>
+<option>Tiruvannamalai</option>
+<option>Tiruvarur</option>
+<option>Vellore</option>
+<option>Viluppuram</option>
+<option>Virudhunagar</option>
 
 </select>
 
@@ -426,7 +442,7 @@ BE A PART OF CHANGE
 
 <div class="input-group full">
 <label>Upload Photo *</label>
-<input type="file" id="photo" accept="image/*">
+<input type="file" id="photo" accept="image/*" required>
 </div>
 
 </div>
@@ -439,112 +455,35 @@ Photo Preview
 <img id="previewImg" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
 </div>
 
-<button class="join-btn">
+<button type="submit" class="join-btn">
 JOIN DMK
 </button>
-  <!-- ADD THIS BUTTON -->
-
-<button onclick="generateCard()" class="join-btn">
-Join Now
-</button>
-
-<!-- ADD THIS FULL CARD CODE BELOW THE BUTTON -->
-
-<div id="cardPage" style="display:none;">
-
-<div class="card-container">
-
-<!-- FRONT CARD -->
-
-<div class="id-card">
-
-<div class="top-section">
-
-<img id="profilePreview"
-src="https://i.ibb.co/7QpKsCX/user.png"
-class="profile-img">
-
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=DMK"
-class="qr-img">
-
-<img src="https://upload.wikimedia.org/wikipedia/en/5/5f/Dravida_Munnetra_Kazhagam_logo.png"
-class="dmk-logo">
-
-<div class="title">
-திராவிட முன்னேற்றக் கழகம்
-</div>
-
-<div class="subtitle">
-இணையவழி உறுப்பினர் அட்டை
-</div>
-
-<div class="member-btn">
-உறுப்பினர்
-</div>
-
-</div>
-
-<div class="bottom-menu">
-
-<span>கடமை</span>
-
-<span>கண்ணியம்</span>
-
-<span>கட்டுப்பாடு</span>
-
-</div>
-
-</div>
-
-<!-- BACK CARD -->
-
-<div class="back-card">
-
-<h2>
-இணையவழி உறுப்பினர் அட்டை
-</h2>
-
-<div class="details-box">
-
-<p>
-பெயர் :
-<span id="cardName"></span>
-</p>
-
-<p>
-தந்தை / கணவர் பெயர் :
-<span id="cardFather"></span>
-</p>
-
-<p>
-வயது :
-<span id="cardAge"></span>
-</p>
-
-<p>
-சேரும் தேதி :
-<span id="cardDate"></span>
-</p>
-
-<p>
-மாவட்டம் :
-<span id="cardDistrict"></span>
-</p>
-
-<p>
-உறுப்பினர் ஐடி :
-<span id="memberId"></span>
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
 
 </form>
+
+<!-- MEMBER CARD -->
+
+<div class="member-card" id="memberCard">
+
+<div class="card-box">
+
+<h2>DMK MEMBERSHIP CARD</h2>
+
+<img id="cardPhoto" class="card-photo" src="">
+
+<div id="cardName" class="card-name"></div>
+
+<div id="cardMobile" class="card-details"></div>
+
+<div id="cardDistrict" class="card-details"></div>
+
+<div class="card-status">
+Official DMK Member
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -557,9 +496,10 @@ class="dmk-logo">
 Designed with ❤️ by <span>Ravin Tech</span>
 
 </footer>
-  
 
 <script>
+
+/* IMAGE PREVIEW */
 
 const photo = document.getElementById('photo');
 const preview = document.getElementById('previewImg');
@@ -584,7 +524,47 @@ reader.readAsDataURL(file);
 
 });
 
+/* FORM SUBMIT */
+
+const form = document.getElementById("joinForm");
+
+form.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+/* GET VALUES */
+
+const name = document.getElementById("name").value;
+
+const mobile = document.getElementById("mobile").value;
+
+const district = document.getElementById("district").value;
+
+/* SHOW CARD */
+
+document.getElementById("memberCard").style.display = "block";
+
+document.getElementById("cardName").innerHTML = name;
+
+document.getElementById("cardMobile").innerHTML =
+"Mobile : " + mobile;
+
+document.getElementById("cardDistrict").innerHTML =
+"District : " + district;
+
+document.getElementById("cardPhoto").src =
+preview.src;
+
+/* SCROLL */
+
+document.getElementById("memberCard")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+});
+
 </script>
 
 </body>
-                         </html>
+  </html>
